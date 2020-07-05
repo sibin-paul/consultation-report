@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'css/consultation_report.css' %}">
+<script src="{% static 'js/report_validations.js' %}"></script> 
+</head>
+<body>
+
+<form action='' method='post' name='ConsultationForm' onsubmit="return validateForm()">
+	{% csrf_token %} 
+	<center>
+  <div class="container">
+    <h1>Consultation Form</h1>
+    <hr>
+    	<table>
+    	<tr>
+    		<td>
+    			<label for="clinic_name"><b>Clinic Name</b></label>
+    			<input type="text" placeholder="Clinic name" name="clinic_name" id="clinic_name" required>
+    		</td>
+    		<td>
+    			<label for="clinic_logo"><b>Clinic Logo</b></label>
+    			<input type="file" id="clinic_logo" name="clinic_logo">
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>
+    			<label for="physician_name"><b>Physician Name</b></label>
+    			<input type="text" placeholder="Enter Physician name" name="physician_name" id="physician_name" required>
+    		</td>
+    		<td>
+    			<label for="physician_contact"><b>Physician Contact</b></label>
+    			<input type="text" placeholder="Physician contact" name="physician_contact" id="physician_contact" required>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>
+    			<label for="patient_firstname"><b>Patient Firstname</b></label>
+    			<input type="text" placeholder="Enter Firstname" name="patient_firstname" id="patient_firstname" required>
+    		</td>
+    		<td>
+    			<label for="patient_lastname"><b>Patient Lastname</b></label>
+    			<input type="text" placeholder="Enter Lastname" name="patient_lastname" id="patient_lastname" required>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>
+    			<label for="patient_contact"><b>Patient_Contact</b></label>
+    			<input type="text" placeholder="Patient Contact" name="patient_contact" id="patient_contact" required>
+    		</td>
+    		<td>
+    			<label for="patient_dob"><b>Patient DOB : </b></label>
+    			<input type="date" placeholder="Enter Patient's DOB" name="patient_dob" id="patient_dob" required>
+    		</td>
+    	</tr>
+        <tr>
+            <td>
+                <label for="chief_complaint"><b>Chief Complaint : </b></label>
+                <textarea class="textarea" id="chief_complaint" name="chief_complaint" rows="10" cols="50">
+                </textarea>
+            </td>    
+            <td>
+                <label for="consultation_note"><b>Consultation Note : </b></label>
+                 <textarea class="textarea" id="consultation_note" name="consultation_note" rows="10" cols="50">
+                </textarea>
+            </td>    
+        </tr>
+      </table>  	
+    
+    <button type="submit" class="reportbtn">Generate Report</button>
+  </div>
+   </center>  
+</form>
+
+</body>
+</html>
